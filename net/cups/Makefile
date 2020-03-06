@@ -12,12 +12,8 @@ PKG_VERSION:=1.6.3
 PKG_RELEASE:=4
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-source.tar.bz2
-PKG_SOURCE_URL:= \
-	http://ftp.rz.tu-bs.de/pub/mirror/ftp.easysw.com/ftp/pub/cups/$(PKG_VERSION) \
-	ftp://ftp.easysw.com/pub/cups/$(PKG_VERSION) \
-	ftp://ftp3.easysw.com/pub/cups/$(PKG_VERSION) \
-	http://www.cups.org/software/$(PKG_VERSION)
-PKG_MD5SUM:=946a2d8ad1aec6beced312fce18543da
+#PKG_SOURCE_URL:=http://www.cups.org/software/$(PKG_VERSION)
+#PKG_MD5SUM:=946a2d8ad1aec6beced312fce18543da
 
 TARGET_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
@@ -32,7 +28,7 @@ define Package/cups
 $(call Package/cups/Default)
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libcups +libcupsmime +libcupscgi +libcupsppdc +libusb-1.0 +libavahi-dbus-support +libavahi-client +libdbus +openslp +avahi-autoipd +avahi-dnsconfd
+  DEPENDS:=+libcups +libcupsmime +libcupscgi +libcupsppdc +libusb-1.0 +libavahi-dbus-support +libavahi-client +libdbus +openslp +libacl
   TITLE:=Common UNIX Printing System (daemon)
 endef
 
